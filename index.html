@@ -529,27 +529,30 @@
 
         .bts-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .bts-photo {
+        .bts-grid img {
             width: 100%;
-            aspect-ratio: 3/2;
+            height: 380px;
             object-fit: cover;
-            border: 1px solid var(--accent-gold-soft);
-            border-radius: 4px;
-            transition: var(--transition-smooth);
+            border: 1px solid rgba(201,168,76,0.15);
+            transition: transform 0.3s ease;
         }
 
-        .bts-photo:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-gold);
+        .bts-grid img:hover {
+            transform: scale(1.01);
         }
 
         @media (max-width: 768px) {
             .bts-grid {
                 grid-template-columns: 1fr;
+            }
+            .bts-grid img {
+                height: 260px;
             }
         }
 
@@ -712,9 +715,10 @@
     <div class="bts-row reveal">
         <span class="bts-label bebas">ON SET</span>
         <div class="bts-grid">
-            <img src="assets/photos/alex-photo-6.jpg" alt="Green screen studio set" class="bts-photo">
-            <img src="assets/photos/alex-photo-3.jpg" alt="Golf course BTS" class="bts-photo">
-            <img src="assets/photos/alex-photo-5.png" alt="Pro Tools session" class="bts-photo">
+            <img src="assets/photos/gear-03.jpg" alt="wide outdoor snowy set with crew">
+            <img src="assets/photos/gear-08.jpg" alt="indoor production room with sound bag in foreground">
+            <img src="assets/photos/gear-04.jpg" alt="sound bag in foreground, blurred set behind">
+            <img src="assets/photos/gear-07.jpg" alt="snow venue wide shot, crew visible">
         </div>
     </div>
 
