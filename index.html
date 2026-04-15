@@ -784,12 +784,14 @@
             </a>
         </div>
 
-        <form class="contact-form">
+        <form class="contact-form" action="https://formspree.io/alex.faucheux@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New inquiry from jalexsound.com">
+            <input type="hidden" name="_next" value="https://thecooperativeagency.github.io/jalexsound/?sent=true">
             <div class="form-row">
-                <input type="text" placeholder="NAME" required>
-                <input type="email" placeholder="EMAIL" required>
+                <input type="text" name="name" placeholder="NAME" required>
+                <input type="email" name="email" placeholder="EMAIL" required>
             </div>
-            <textarea placeholder="MESSAGE" rows="6" required></textarea>
+            <textarea name="message" placeholder="MESSAGE" rows="6" required></textarea>
             <button type="submit" class="submit-btn">SEND MESSAGE</button>
         </form>
     </section>
@@ -863,27 +865,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => {
             revealObserver.observe(el);
-        });
-
-        // Form Submission (Simulated)
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('.submit-btn');
-            const originalText = btn.textContent;
-            btn.textContent = 'SENDING...';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.textContent = 'MESSAGE SENT';
-                btn.style.background = '#4CAF50';
-                form.reset();
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = 'var(--accent-gold)';
-                    btn.disabled = false;
-                }, 3000);
-            }, 1500);
         });
     </script>
 </body>
