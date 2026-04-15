@@ -1,5 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>J. Alex Sound — Coming Soon</title></head>
-<body><h1>Building something great.</h1></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J. Alex Sound | Professional Sound Mixer | IATSE Local 7</title>
+    <meta name="description" content="Official portfolio of Alex Faucheux, a professional Sound Mixer (IATSE Local 7) based in Denver, CO. Specialized in Film, TV, Documentary, and Commercial sound.">
+    
+    <!-- SEO / Open Graph -->
+    <meta property="og:title" content="J. Alex Sound | Professional Sound Mixer">
+    <meta property="og:description" content="Cinematic sound mixing for Film, Television, and Documentary. Member of IATSE Local 7.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #000000;
+            --bg-surface: #0a0a0a;
+            --card-surface: #111111;
+            --card-hover: #1a1a1a;
+            --accent-gold: #C9A84C;
+            --accent-gold-soft: rgba(201, 168, 76, 0.3);
+            --text-primary: #f0f0f0;
+            --text-muted: #888888;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Cinematic Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Typography */
+        h1, h2, h3, .bebas {
+            font-family: 'Bebas Neue', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-gold-soft);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-gold);
+            transform: scaleX(0.7);
+            transform-origin: left;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-primary);
+            margin: 5px 0;
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #000 70%);
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 12vw, 8rem);
+            margin-bottom: 1rem;
+            animation: fadeInScale 1.5s ease-out;
+        }
+
+        .hero-subline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--accent-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        .hero-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.5s ease-out 0.6s both;
+        }
+
+        .btn-gold {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            animation: fadeInUp 1.5s ease-out 0.9s both;
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-gold);
+            color: var(--bg-deep);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Credits Section */
+        section {
+            padding: 8rem 5%;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .title-line {
+            height: 1px;
+            width: 100%;
+            background: var(--accent-gold-soft);
+        }
+
+        .tabs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold-soft);
+            color: var(--text-muted);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .credit-card {
+            background: var(--card-surface);
+            border-left: 3px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .credit-card:hover {
+            background: var(--card-hover);
+        }
+
+        .credit-list {
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .highlight::before {
+            content: "•";
+            color: var(--accent-gold);
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        #resume {
+            background-color: var(--bg-surface);
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .bio-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .bio-text {
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-pill {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--accent-gold-soft);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid var(--accent-gold-soft);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            font-family: 'Bebas Neue', cursive;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtext {
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        input, textarea {
+            background: var(--card-surface);
+            border: 1px solid var(--accent-gold-soft);
+            padding: 1.2rem;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-smooth);
+            border-radius: 0;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .submit-btn {
+            background: var(--accent-gold);
+            color: var(--bg-deep);
+            border: none;
+            padding: 1.2rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--accent-gold-soft);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg-deep);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#hero" class="logo bebas">J. ALEX SOUND</a>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="#work">Work</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <h1 class="hero-title bebas">SOUND MIXER</h1>
+        <p class="hero-subline">Film · Television · Documentary · Commercial</p>
+        <p class="hero-meta">IATSE LOCAL 7 · DENVER, CO · EST. 2007</p>
+        <a href="#work" class="btn-gold">VIEW MY WORK ↓</a>
+        <div class="scroll-indicator">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+        </div>
+    </header>
+
+    <section id="work" class="reveal">
+        <div class="section-header">
+            <h2 class="section-title">SELECTED WORK</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="doc">DOCUMENTARY</button>
+                <button class="tab-btn" data-tab="reality">REALITY</button>
+                <button class="tab-btn" data-tab="scripted">SCRIPTED</button>
+                <button class="tab-btn" data-tab="commercial">COMMERCIAL</button>
+                <button class="tab-btn" data-tab="post">POST-PRODUCTION</button>
+            </div>
+
+            <div id="doc" class="tab-content active">
+                <div class="credit-card">
+                    <div class="credit-list">
+                        <span class="highlight">The Pharmacist (Netflix)</span> · 
+                        <span class="highlight">Hack Your Health: The Secrets of Your Gut (Netflix)</span> · 
+                        <span class="highlight">I Just Killed My Dad (Netflix)</span> · 
+                        <span class="highlight">Civil: Ben Crump (Netflix)</span> · 
+                        <span class="highlight">Tyler Henry: Coming Through (Netflix)</span> · 
+                        <span class="highlight">Children of the Underground (FX/Hulu)</span> · 
+                        <span class="highlight">Frontline: American Reckoning (PBS)</span> · 
+                        <span class="highlight">United Shades of America (CNN)</span> · 
+                        <span class="highlight">Shadowland: Killed the Man I Know (The Atlantic)</span> · 
+                        <span class="highlight">Shallow Water (NFL Network)</span> · Into the Unknown · Outriding the Devil · The Age of Disclosure · Everest
+                    </div>
+                </div>
+            </div>
+
+            <div id="reality" class="tab-content">
+                <div class="credit-card">
+                    <div class="credit-list">
+                        Rocket Man (Channel 4 UK) · 
+                        <span class="highlight">HomeTown (HGTV)</span> · 
+                        <span class="highlight">Rock the Block (HGTV)</span> · 
+                        <span class="highlight">Property Brothers (HGTV)</span> · 
+                        <span class="highlight">Selling the Big Easy (HGTV)</span> · 
+                        <span class="highlight">Ben's Workshop (Discovery+)</span> · 
+                        The Deed (CNBC) · Man vs. Food · 90 Day Fiancé · 90 Day Fiancé: Happily Ever After · Pitbulls and Parolees (Animal Planet) · Love & Marriage Huntsville (OWN) · Black Ink · Love & Hip Hop · High Science · Road Rage Fixers · Louisiana Flip n Move (DIY Network)
+                    </div>
+                </div>
+            </div>
+
+            <div id="scripted" class="tab-content">
+                <div class="credit-card">
+                    <div class="credit-list">
+                        <span class="highlight">Interview with the Vampire — Sound Mixer (AMC)</span> · 
+                        Leverage: Redemption — Sound Mixer · 
+                        <span class="highlight">I'm a Virgo — Boom Op (Prime Video)</span> · 
+                        Last Light — Sound Mixer · Just Jake — Sound Mixer (UpTV) · An Aria for the Albrights — Sound Mixer · The Verses — Sound Mixer · The Man Who Changed the World — Sound Utility · Uck — Sound Mixer
+                    </div>
+                </div>
+            </div>
+
+            <div id="commercial" class="tab-content">
+                <div class="credit-card">
+                    <div class="credit-list">
+                        <span class="highlight">Nike: Dreams… feat. Deion Sanders</span> · 
+                        <span class="highlight">Jordan Brand: "Zion 1" — Zion Williamson Campaign</span> · 
+                        Gatorade · Capital One · Toyota · Amazon · Home Depot · Walkon's · Winn-Dixie · CMA · AbbVie · Intera Oncology · American Cancer Society
+                    </div>
+                </div>
+            </div>
+
+            <div id="post" class="tab-content">
+                <div class="credit-card">
+                    <div class="credit-list">
+                        The Brothers Bloom · Cleaner · Private Valentine · Rest Stop: Don't Look Back · Middle of Nowhere · Wolvesbayne · Beyond a Reasonable Doubt · Streets of Blood · Are You Scared 2 · The Way of War · The Dunwich Horror · Flu Bird Horror · Ghouls · Mama I Want to Sing · Trance
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="reveal">
+        <div class="section-header">
+            <h2 class="section-title">ABOUT & RESUME</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="resume-grid">
+            <div class="resume-left">
+                <div class="bio-quote">"Working in Film & TV Sound since 2007"</div>
+                <div class="bio-text">
+                    Alex Faucheux is a professional Sound Mixer and member of IATSE Local 7, based in Denver, Colorado. With nearly two decades of experience across documentary, scripted, reality, and commercial production, he has brought his craft to projects for Netflix, AMC, FX, Prime Video, PBS, CNN, HGTV, Nike, and more.<br><br>
+                    A Louisiana native and Full Sail University graduate, Alex began his career in post-production before transitioning to production sound in 2011. Since then, he has built a reputation for precision, adaptability, and deep technical expertise across all production environments.
+                </div>
+                <div class="skills-container">
+                    <span class="skill-pill">Production Sound Mixing</span>
+                    <span class="skill-pill">Boom Operating</span>
+                    <span class="skill-pill">Sound Editing</span>
+                    <span class="skill-pill">ProTools</span>
+                    <span class="skill-pill">Documentary</span>
+                    <span class="skill-pill">Narrative</span>
+                    <span class="skill-pill">Reality</span>
+                    <span class="skill-pill">Commercial</span>
+                    <span class="skill-pill">IATSE Local 7</span>
+                </div>
+            </div>
+
+            <div class="resume-right">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">2003</span>
+                        <div class="timeline-desc">St. Michael the Archangel High School</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2006</span>
+                        <div class="timeline-desc">Full Sail University · Recording Arts</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2007</span>
+                        <div class="timeline-desc">Sound Editor, Louisiana Media Services</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2009</span>
+                        <div class="timeline-desc">Tech Support Manager, PreSonus Audio</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2011 – PRESENT</span>
+                        <div class="timeline-desc">Freelance Sound Mixer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2 class="contact-title bebas">LET'S WORK TOGETHER</h2>
+        <p class="contact-subtext">Available for documentary, scripted, reality, and commercial projects.</p>
+        
+        <div class="contact-info">
+            <a href="tel:2257722038" class="contact-link">
+                <span>📞</span> 225.772.2038
+            </a>
+            <a href="https://instagram.com/jalexfaucheux" target="_blank" class="contact-link">
+                <span>📷</span> @jalexfaucheux
+            </a>
+        </div>
+
+        <form class="contact-form">
+            <div class="form-row">
+                <input type="text" placeholder="NAME" required>
+                <input type="email" placeholder="EMAIL" required>
+            </div>
+            <textarea placeholder="MESSAGE" rows="6" required></textarea>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2026 J. Alex Sound · IATSE Local 7 · Denver, CO
+    </footer>
+
+    <script>
+        // Navigation Scroll Effect
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Tab Switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Update buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Reveal Animations on Scroll
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Form Submission (Simulated)
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'SENDING...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'MESSAGE SENT';
+                btn.style.background = '#4CAF50';
+                form.reset();
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--accent-gold)';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
 </html>
