@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear & Rates | J. Alex Sound | Professional Sound Mixer</title>
+    <meta name="description" content="Professional sound packages and equipment list for J. Alex Sound. Serving Film, TV, Documentary, and Commercial productions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #000000;
+            --bg-surface: #0a0a0a;
+            --card-surface: #111111;
+            --card-hover: #1a1a1a;
+            --accent-gold: #C9A84C;
+            --accent-gold-soft: rgba(201, 168, 76, 0.3);
+            --text-primary: #f0f0f0;
+            --text-muted: #888888;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Cinematic Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        h1, h2, h3, .bebas {
+            font-family: 'Bebas Neue', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-gold-soft);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-gold);
+            transform: scaleX(0.7);
+            transform-origin: left;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: var(--bg-deep);
+            padding: 0 5%;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .hero-subline {
+            font-weight: 300;
+            color: var(--accent-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+        }
+
+        /* Pricing Grid */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .title-line {
+            height: 1px;
+            width: 100%;
+            background: var(--accent-gold-soft);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-card {
+            background: var(--card-surface);
+            border: 1px solid var(--accent-gold-soft);
+            padding: 2rem;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card:hover {
+            border-color: var(--accent-gold);
+            background: var(--card-hover);
+        }
+
+        .package-name {
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .package-rate {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .package-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .note {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Gear List */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .gear-category {
+            background: var(--card-surface);
+            padding: 2rem;
+            border-left: 2px solid var(--accent-gold);
+        }
+
+        .category-title {
+            color: var(--accent-gold);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .gear-items {
+            list-style: none;
+        }
+
+        .gear-items li {
+            font-weight: 300;
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 5%;
+            background: var(--bg-surface);
+        }
+
+        .cta-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtext {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .btn-gold {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-gold);
+            color: var(--bg-deep);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--accent-gold-soft);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gear-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none; /* Simplified for subagent task, keeping it clean */
+            }
+
+            .cta-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo bebas">J. ALEX SOUND</a>
+        <div class="nav-links">
+            <a href="index.html#work">Work</a>
+            <a href="index.html#resume">Resume</a>
+            <a href="rates.html" class="active">Rates</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <h1 class="hero-title bebas">GEAR & RATES</h1>
+        <p class="hero-subline">Professional sound packages for Film, TV, Documentary & Commercial</p>
+    </header>
+
+    <section id="kit-packages">
+        <div class="section-header">
+            <h2 class="section-title">KIT PACKAGES</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Basic Kit</div>
+                    <div class="package-rate">$450/day</div>
+                </div>
+                <div class="package-desc">Mixer/Recorder, Boom, 2 Talent Wireless</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Additional Wireless</div>
+                    <div class="package-rate">$75/day</div>
+                </div>
+                <div class="package-desc">Per unit</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">IFB System</div>
+                    <div class="package-rate">$100/day</div>
+                </div>
+                <div class="package-desc">With 4 Receivers</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Comtek System</div>
+                    <div class="package-rate">$150/day</div>
+                </div>
+                <div class="package-desc">With 4 Receivers</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Additional Comteks</div>
+                    <div class="package-rate">$30/day</div>
+                </div>
+                <div class="package-desc">Per unit</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Timecode Slate</div>
+                    <div class="package-rate">$50/day</div>
+                </div>
+                <div class="package-desc">Denecke TS-C</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">TC Box for Camera</div>
+                    <div class="package-rate">$25/day</div>
+                </div>
+                <div class="package-desc">Per unit</div>
+            </div>
+            <div class="price-card">
+                <div>
+                    <div class="package-name">Scratch Hop</div>
+                    <div class="package-rate">$25/day</div>
+                </div>
+                <div class="package-desc">Wireless to camera</div>
+            </div>
+        </div>
+        <p class="note">Please inquire about additional gear not listed.</p>
+    </section>
+
+    <section id="full-gear">
+        <div class="section-header">
+            <h2 class="section-title">FULL GEAR LIST</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="gear-grid">
+            <div class="gear-category">
+                <h3 class="category-title">RECORDING</h3>
+                <ul class="gear-items">
+                    <li>Sound Devices 833 Mixer/Recorder</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">WIRELESS SYSTEMS</h3>
+                <ul class="gear-items">
+                    <li>Lectrosonics SR-C Receivers ×3</li>
+                    <li>Lectrosonics LT Transmitters ×2</li>
+                    <li>Lectrosonics SMWB Transmitters ×2</li>
+                    <li>Lectrosonics SMA Transmitters ×2</li>
+                    <li>Lectrosonics LMa Transmitters ×2</li>
+                    <li>Lectrosonics R1A Receivers ×4</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">IFB / COMTEK</h3>
+                <ul class="gear-items">
+                    <li>Comtek BST 75 Transmitter</li>
+                    <li>Comtek IFB Receivers ×8</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">MICROPHONES</h3>
+                <ul class="gear-items">
+                    <li>Sennheiser MKH 416 Shotgun Mic</li>
+                    <li>Sennheiser MKH 50 Dialog Mic ×2</li>
+                    <li>Audio Technica Shotgun Mic ×3</li>
+                    <li>Countryman Lav Mics ×12</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">BOOMS & BAGS</h3>
+                <ul class="gear-items">
+                    <li>Ambient Boom Poles ×4</li>
+                    <li>Ktek Boom Poles ×2</li>
+                    <li>Ktek Mixer Bag</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">TIMECODE & SYNC</h3>
+                <ul class="gear-items">
+                    <li>Denecke TS-C Smart Slate</li>
+                    <li>Denecke SB-4 Lockboxes ×2</li>
+                    <li>Tentacle Sync ×2</li>
+                </ul>
+            </div>
+
+            <div class="gear-category">
+                <h3 class="category-title">DISTRIBUTION & ANTENNA</h3>
+                <ul class="gear-items">
+                    <li>BDS System with Smart Batteries</li>
+                    <li>PSC Antenna Distribution</li>
+                    <li>Betso Bow Tie Antennas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-title bebas">READY TO BOOK?</h2>
+        <p class="cta-subtext">Get in touch to discuss your project and confirm availability.</p>
+        <a href="index.html#contact" class="btn-gold">CONTACT ME →</a>
+    </section>
+
+    <footer>
+        © 2026 J. Alex Sound · IATSE Local 7 · Denver, CO
+    </footer>
+
+</body>
+</html>
