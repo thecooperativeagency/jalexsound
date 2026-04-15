@@ -152,7 +152,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #111 0%, #000 70%);
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.75) 100%), url('assets/photos/alex-acs-shoot.jpg');
+            background-size: cover;
+            background-position: center top;
             padding: 0 5%;
             position: relative;
         }
@@ -511,6 +513,46 @@
             transform: translateY(0);
         }
 
+        /* BTS Grid */
+        .bts-row {
+            background-color: var(--bg-deep);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .bts-label {
+            display: block;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .bts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bts-photo {
+            width: 100%;
+            aspect-ratio: 3/2;
+            object-fit: cover;
+            border: 1px solid var(--accent-gold-soft);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .bts-photo:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .bts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .resume-grid {
@@ -666,6 +708,15 @@
         </div>
     </section>
 
+    <div class="bts-row reveal">
+        <span class="bts-label bebas">ON SET</span>
+        <div class="bts-grid">
+            <img src="assets/photos/alex-photo-6.jpg" alt="Green screen studio set" class="bts-photo">
+            <img src="assets/photos/alex-photo-3.jpg" alt="Golf course BTS" class="bts-photo">
+            <img src="assets/photos/alex-photo-5.png" alt="Pro Tools session" class="bts-photo">
+        </div>
+    </div>
+
     <section id="resume" class="reveal">
         <div class="section-header">
             <h2 class="section-title">ABOUT & RESUME</h2>
@@ -693,6 +744,7 @@
             </div>
 
             <div class="resume-right">
+                <img src="assets/photos/alex-photo-4.jpg" alt="Alex Faucheux on set" style="width: 100%; border-radius: 4px; border: 1px solid rgba(201,168,76,0.4); margin-bottom: 2rem;">
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-year">2003</span>
