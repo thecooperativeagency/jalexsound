@@ -140,7 +140,53 @@
             font-size: clamp(0.7rem, 2vw, 1rem);
         }
 
-        /* Pricing Grid */
+        /* Pricing Section */
+        .rates-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .rates-table {
+            border-top: 1px solid rgba(201,168,76,0.3);
+        }
+
+        .rate-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .rate-row:hover {
+            background: rgba(201,168,76,0.04);
+        }
+
+        .rate-item {
+            color: #f0f0f0;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        .rate-price {
+            color: #C9A84C;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            margin-left: 24px;
+        }
+
+        .rates-note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         section {
             padding: 6rem 5%;
         }
@@ -162,58 +208,6 @@
             height: 1px;
             width: 100%;
             background: var(--accent-gold-soft);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .price-card {
-            background: var(--card-surface);
-            border: 1px solid var(--accent-gold-soft);
-            padding: 2rem;
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .price-card:hover {
-            border-color: var(--accent-gold);
-            background: var(--card-hover);
-        }
-
-        .package-name {
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .package-rate {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        .package-desc {
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: var(--text-muted);
-        }
-
-        .note {
-            text-align: center;
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 2rem;
         }
 
         /* Gear List */
@@ -247,6 +241,7 @@
             margin-bottom: 0.6rem;
             color: var(--text-primary);
         }
+
 
         /* CTA */
         .cta-section {
@@ -403,71 +398,43 @@
         </div>
     </section>
 
-    <section id="kit-packages">
-        <div class="section-header">
-            <h2 class="section-title">DAY RATES</h2>
-            <div class="title-line"></div>
+    <section class="rates-section">
+      <h2 class="section-title bebas">DAY RATES</h2>
+      <div class="rates-table">
+        <div class="rate-row">
+          <span class="rate-item">Basic Kit — Mixer/Recorder, Boom, 2 Talent Wireless</span>
+          <span class="rate-price">$450</span>
         </div>
-
-        <div class="pricing-grid">
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Basic Kit</div>
-                    <div class="package-rate">$450/day</div>
-                </div>
-                <div class="package-desc">Mixer/Recorder, Boom, 2 Talent Wireless</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Additional Wireless</div>
-                    <div class="package-rate">$75/day</div>
-                </div>
-                <div class="package-desc">Per unit</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">IFB System</div>
-                    <div class="package-rate">$100/day</div>
-                </div>
-                <div class="package-desc">With 4 Receivers</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Comtek System</div>
-                    <div class="package-rate">$150/day</div>
-                </div>
-                <div class="package-desc">With 4 Receivers</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Additional Comteks</div>
-                    <div class="package-rate">$30/day</div>
-                </div>
-                <div class="package-desc">Per unit</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Timecode Slate</div>
-                    <div class="package-rate">$50/day</div>
-                </div>
-                <div class="package-desc">Denecke TS-C</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">TC Box for Camera</div>
-                    <div class="package-rate">$25/day</div>
-                </div>
-                <div class="package-desc">Per unit</div>
-            </div>
-            <div class="price-card">
-                <div>
-                    <div class="package-name">Scratch Hop</div>
-                    <div class="package-rate">$25/day</div>
-                </div>
-                <div class="package-desc">Wireless to camera</div>
-            </div>
+        <div class="rate-row">
+          <span class="rate-item">Additional Wireless (per unit)</span>
+          <span class="rate-price">$75</span>
         </div>
-        <p class="note">Please inquire about additional gear not listed.</p>
+        <div class="rate-row">
+          <span class="rate-item">IFB System with 4 Receivers</span>
+          <span class="rate-price">$100</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-item">Comtek System with 4 Receivers</span>
+          <span class="rate-price">$150</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-item">Additional Comteks (per unit)</span>
+          <span class="rate-price">$30</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-item">Timecode Slate</span>
+          <span class="rate-price">$50</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-item">TC Box for Camera</span>
+          <span class="rate-price">$25</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-item">Scratch Hop to Camera</span>
+          <span class="rate-price">$25</span>
+        </div>
+      </div>
+      <p class="rates-note">Please inquire about additional gear not listed.</p>
     </section>
 
     <section class="cta-section">
